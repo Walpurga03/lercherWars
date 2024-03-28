@@ -5,7 +5,7 @@ import '../styles/RatingScale.css';
 const RatingScale = ({ value, fillColor }) => {
     return (
       <div className="rating-scale">
-        {[1, 2, 3, 4, 5].map((number) => (
+        {[1, 2, 3, 4, 5, 6].map((number) => (
           <div
             key={number}
             style={{ backgroundColor: value >= number ? fillColor : 'transparent' }}

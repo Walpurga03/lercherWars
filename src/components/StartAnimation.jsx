@@ -8,8 +8,8 @@ const StartAnimation = ({ onAnimationEnd }) => {
     useEffect(() => {
         anime.timeline({
             complete: () => {
-                setIsAnimationComplete(true); // Setzen Sie den Zustand auf true, wenn die Animation abgeschlossen ist
-                if(onAnimationEnd) onAnimationEnd(); // Optional: Aufrufen eines Callbacks, falls bereitgestellt
+                setIsAnimationComplete(true); 
+                if(onAnimationEnd) onAnimationEnd(); 
             }
         })
         .add({
@@ -41,17 +41,16 @@ const StartAnimation = ({ onAnimationEnd }) => {
         })
         .add({
             targets: '.text span', 
-            translateX: [0, 0],
+            translateX: [0, 20],
             scale: [1, 50],
             opacity: [1, 0],
             easing: "easeOutExpo",
             duration: 1500,
             delay: anime.stagger(100),
         });
-    }, [onAnimationEnd]); // Abhängigkeit hinzufügen, falls onAnimationEnd sich ändert
+    }, [onAnimationEnd]); 
 
-    // Vorbereitung des Texts für die Animation
-    const characters = "Money Wars".split("").map((char, index) => (
+    const characters = "Lercher Wars".split("").map((char, index) => (
         <span key={index} style={{display: 'inline-block'}}>
             {char === ' ' ? '\u00A0' : char} {/* Ersetzt Leerzeichen durch ein geschütztes Leerzeichen */}
         </span>

@@ -15,7 +15,7 @@ const EndAnimation = ({ playerWon }) => {
     const container = containerRef.current;
     const blockColorClass = playerWon ? 'block-green' : 'block-red'; // Bestimmen der Klasse basierend auf playerWon
   
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 19; i++) {
         const blocks = document.createElement('div');
         blocks.classList.add('block', blockColorClass);
   

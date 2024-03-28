@@ -12,12 +12,10 @@ import StartAnimation from './StartAnimation';
 import EndAnimation from './EndAnimation';
 
 const GameBoard = () => {
-    // Zustände und Daten aus dem Redux-Store holen
     const { playerCards, computerCards, isGameStarted, isPlayerTurn, lastResult, lastSelectedProperty, lastPlayerValue, lastComputerValue, gameOver } = useSelector(state => state.game);
     const dispatch = useDispatch();
     const { currentLanguage } = useSelector(state => state.game);
     
-    // Lokale Zustände für Nachrichten und das Umdrehen der Computerkarte
     const [resultMessage, setResultMessage] = useState(null);
     const [flipComputerCard, setFlipComputerCard] = useState(true);
     const [selectedProperty, setSelectedProperty] = useState(null);
@@ -121,9 +119,6 @@ const GameBoard = () => {
                 <>
                     {isGameStarted ? (
                         <div className="game-container">
-                            <button className="language-toggle-button" onClick={handleToggleLanguage}>
-                                {currentLanguage === 'DE' ? 'E' : 'D'}
-                            </button>
                             <div className="player-cards">
                                 <div className="card-count">Player: {playerCards.length}</div>
                                 {playerCards.length > 0 && 
@@ -162,7 +157,7 @@ const GameBoard = () => {
                                 )}
                             </div>
                             <div className="computer-cards">
-                                <div className="card-count">Sathoshi: {computerCards.length}</div>
+                                <div className="card-count">Mister X: {computerCards.length}</div>
                                 {computerCards.length > 0 && 
                                     <Card 
                                     card={computerCards[0]}

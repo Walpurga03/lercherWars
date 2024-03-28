@@ -1,18 +1,18 @@
 .card-image {
-    width: 100.1%; /* Passt die Bildbreite an die Kartenbreite an */
+    width: 100%; /* Passt die Bildbreite an die Kartenbreite an */
     height: auto; /* Hält das Seitenverhältnis bei */
-    border-radius: 20px;
+    border-radius: 28px;
 }
 
 .card-ul {
     list-style: none; /* Entfernt Aufzählungszeichen */
     padding: 0; /* Entfernt Padding */
-    font-size: 16px; /* Schriftgröße */
+    font-size: 15px; /* Schriftgröße */
 }
 
 .card-ul {
     list-style: none; /* Entfernt die Listensymbole */
-    padding: 10px; /* Fügt Innenabstand hinzu */
+    padding-left: 7px; /* Fügt Innenabstand hinzu */
 }
 
 .card-li {
@@ -56,7 +56,7 @@
 
 .card-container {
     width: 330px;
-    height: 488px;
+    height: 500px;
     border-radius: 2em;
     perspective: 1000px;
     transition: box-shadow 0.6s, border 0.6s; /* Optional: fügt eine Übergangseffekt hinzu */
@@ -111,7 +111,7 @@
 
 /* Schatten und Rand nur anzeigen, wenn NICHT umgedreht */
 .card-flip:not(.is-flipped) .card-front {
-    border: solid 5px rgb(50, 48, 50);
+    border: solid 7px rgb(50, 48, 50);
     box-shadow: 5px 5px 5px grey;
     border-radius: 2em;
 }
