@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import "../styles/Card.css";
 import RatingScale from './RatingScale';
 
-const Card = ({ card, onPropertyClick, isClickable, currentLanguage, isPlayerCard, shouldFlip  }) => {
+const Card = ({ card, onPropertyClick, isClickable, isPlayerCard, shouldFlip  }) => {
     const [isFlipped, setIsFlipped] = useState(!isPlayerCard);
     const [showFullText, setShowFullText] = useState(false); 
 

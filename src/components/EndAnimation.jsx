@@ -54,7 +54,7 @@ const EndAnimation = ({ playerWon }) => {
   
   return (
     <div className='endAnimBody' ref={containerRef} style={{ background: backgroundColor }}>
-      <h2 style={{ color: messageColor }}><span>Monay Wars<br></br></span>{message}</h2>
+      <h2 style={{ color: messageColor }}><span>Lercher Wars<br></br></span>{message}</h2>
     </div>
   );
 };

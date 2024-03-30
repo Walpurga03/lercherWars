@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startGame, compareCardProperties } from '../redux/actions';
 import { selectHighestPropertyForComputer } from '../logic/gameLogic';
-import { toggleLanguage } from '../redux/actions';
-
 
 import Card from './Card';
 import '../styles/GameBoard.css';
@@ -12,9 +10,10 @@ import StartAnimation from './StartAnimation';
 import EndAnimation from './EndAnimation';
 
 const GameBoard = () => {
+
+    const togglePropertiesPopup = () => setShowPropertiesPopup(!showPropertiesPopup);
     const { playerCards, computerCards, isGameStarted, isPlayerTurn, lastResult, lastSelectedProperty, lastPlayerValue, lastComputerValue, gameOver } = useSelector(state => state.game);
     const dispatch = useDispatch();
-    const { currentLanguage } = useSelector(state => state.game);
     
     const [resultMessage, setResultMessage] = useState(null);
     const [flipComputerCard, setFlipComputerCard] = useState(true);
@@ -28,21 +27,18 @@ const GameBoard = () => {
         setIsAnimationFinished(true);
     };
     const propertyLabels = {
-        property0: "Seit",
-        property1: "Seit",
-        property2: "Knappheit",
-        property3: "Lebensdauer",
-        property4: "Teilbarkeit",
-        property5: "Transportfähigkeit",
+        property1: "Powermill",
+        property2: "Sauberkeit",
+        property3: "Fräserfahrung",
+        property4: "Sportlichkeit",
+        property5: "Sitzfleisch",
       };
-    // Sprache umschalten
-    const handleToggleLanguage = () => {
-        dispatch(toggleLanguage());
-    };
-    // Startet das Spiel durch Dispatch eines Redux-Actions
+  
     const handleStartGame = () => {
+        setSelectedProperty(null)
         dispatch(startGame());
     };
+
     const handlePropertyClick = (property) => {
         setMoveCounter(prevCounter => prevCounter + 1);
         if (playerCards.length > 0 && computerCards.length > 0) {
@@ -67,6 +63,7 @@ const GameBoard = () => {
             
         }
     };
+
     const handleComputerTurn = () => {
         setIsButtonClickable(false);
         setMoveCounter(prevCounter => prevCounter + 1);
@@ -84,7 +81,7 @@ const GameBoard = () => {
             setTimeout(() => {
                 setFlipComputerCard(true);
                 setTimeout(() => {
-                    dispatch(compareCardProperties(playerCards[0], computerCards[0], selectedProperty)); // Aktualisieren Sie die Karten nach einer weiteren kurzen Verzögerung
+                    dispatch(compareCardProperties(playerCards[0], computerCards[0], selectedProperty));
                     setResultMessage(null);
                     setSelectedProperty(null);
                 }, 500); 
@@ -93,6 +90,7 @@ const GameBoard = () => {
             }, 5000); 
         }
     };
+
     let endGameMessage = "";
     if (gameOver) {
         if (playerCards.length === 0) {
@@ -102,14 +100,6 @@ const GameBoard = () => {
         }
     }
 
-    function formatValue(value, selectedProperty) {
-        if (selectedProperty === 'property0') {
-          // Kehrt das Vorzeichen nur um, wenn "Seit" (property1) ausgewählt ist
-          return value < 0 ? "+" + (value)*-1 : "-" + Math.abs(value); // "+" vor negativen Werten, "-" vor positiven Werten
-        }
-        return value; // Gibt den Wert unverändert zurück, wenn nicht "Seit" ausgewählt ist
-      }
-      
       
     return (
         <>
@@ -120,32 +110,26 @@ const GameBoard = () => {
                     {isGameStarted ? (
                         <div className="game-container">
                             <div className="player-cards">
-                                <div className="card-count">Player: {playerCards.length}</div>
+                                <div className="card-count">Spieler  {playerCards.length}</div>
                                 {playerCards.length > 0 && 
                                     <Card 
                                     card={playerCards[0]} 
                                     onPropertyClick={handlePropertyClick}
                                     isClickable={isPlayerTurn} 
-                                    currentLanguage={currentLanguage}
                                     isPlayerCard={true}
                                     /> 
                                 }
                             </div>
-
                             <div className='result'>
                                 <div className={`button-container ${isPlayerTurn ? 'hidden-button' : 'visible-button'}`}>
                                     {!isPlayerTurn && (
-                                    <button onClick={handleComputerTurn} disabled={!isButtonClickable}>Satoshi-Turn</button>
+                                    <button onClick={handleComputerTurn} disabled={!isButtonClickable}>Dominik-Auswahl</button>
                                     )}
                                 </div>  
                                 {selectedProperty && resultMessage && (
                                     <div className={`selected-property ${resultMessage.playerValue > resultMessage.computerValue ? 'result-win' : resultMessage.playerValue < resultMessage.computerValue ? 'result-lose' : 'result-draw'}`}>
                                     <p>{propertyLabels[selectedProperty] || "Keine Eigenschaft ausgewählt"}</p>
-                                    <p>{
-                                        formatValue(resultMessage.playerValue, selectedProperty) + 
-                                        " vs. " + 
-                                        formatValue(resultMessage.computerValue, selectedProperty)
-                                    }</p>
+                                    <p> {resultMessage.playerValue} vs. {resultMessage.computerValue}</p>
                                     {resultMessage.playerValue > resultMessage.computerValue ? (
                                         <p className="result-highlight">Win!</p>
                                     ) : resultMessage.playerValue < resultMessage.computerValue ? (
@@ -157,13 +141,12 @@ const GameBoard = () => {
                                 )}
                             </div>
                             <div className="computer-cards">
-                                <div className="card-count">Mister X: {computerCards.length}</div>
+                                <div className="card-count">Dominik {computerCards.length}</div>
                                 {computerCards.length > 0 && 
                                     <Card 
                                     card={computerCards[0]}
                                     shouldFlip={flipComputerCard}
                                     isClickable={false} 
-                                    currentLanguage={currentLanguage}
                                     isPlayerCard={false}
                                 />
                                 }
@@ -177,7 +160,7 @@ const GameBoard = () => {
                                 <div className="rotate-device">
                                     Bitte drehen Sie Ihr Gerät für die beste Ansicht.
                                 </div>
-                                <button onClick={handleStartGame}>Start Game</button>
+                                <button onClick={handleStartGame}>Spiel Starten</button>
                             </>
                             )}
                         </>

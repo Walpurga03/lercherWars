@@ -13,12 +13,11 @@ export const dealCards = (shuffledCards) => {
 };
 export const compareCardProperties = (playerCard, computerCard, propertyName) => {
   const propertyNamesMapping = {
-      property0: 'Seit',
-      property1: 'Seit',
-      property2: 'Knappheit',
-      property3: 'Lebensdauer',
-      property4: 'Teilbarkeit',
-      property5: 'Transportfähigkeit'
+      property1: 'Powermill',
+      property2: 'Sauberkeit',
+      property3: 'Fräserfahrung',
+      property4: 'Sportlichkeit',
+      property5: 'Sitzfleisch'
   };
   const propertyToCompare = propertyName;
   const readablePropertyName = propertyNamesMapping[propertyToCompare];
@@ -41,17 +40,29 @@ export const compareCardProperties = (playerCard, computerCard, propertyName) =>
 };
 export const selectHighestPropertyForComputer = (computerCard) => {
   let highestValue = -Infinity;
-  let selectedProperty = '';
-  const areAllPropertiesLessThan4 = ['property2', 'property3', 'property4', 'property5'].every(prop => computerCard[prop] < 4);
-  if (areAllPropertiesLessThan4) {
-    return 'property0';
+  let propertiesWithHighestValue = [];
+  
+  // Finde den höchsten Wert
+  ['property1', 'property2', 'property3', 'property4', 'property5'].forEach(prop => {
+    if (computerCard[prop] > highestValue) {
+      highestValue = computerCard[prop];
+    }
+  });
+
+  // Sammle alle Eigenschaften mit dem höchsten Wert
+  ['property1', 'property2', 'property3', 'property4', 'property5'].forEach(prop => {
+    if (computerCard[prop] === highestValue) {
+      propertiesWithHighestValue.push(prop);
+    }
+  });
+
+  // Wähle zufällig eine der Eigenschaften mit dem höchsten Wert
+  if (propertiesWithHighestValue.length > 0) {
+    const randomIndex = Math.floor(Math.random() * propertiesWithHighestValue.length);
+    return propertiesWithHighestValue[randomIndex];
   } else {
-    ['property2', 'property3', 'property4', 'property5'].forEach(prop => {
-      if (computerCard[prop] > highestValue) {
-        highestValue = computerCard[prop];
-        selectedProperty = prop;
-      }
-    });
+    // Sicherheitsrückfall, sollte theoretisch nie erreicht werden, da immer mindestens eine Eigenschaft existiert
+    return 'property1';
   }
-  return selectedProperty;
 };
+
