@@ -14,8 +14,6 @@ const Card = ({ card, onPropertyClick, isClickable, isPlayerCard, shouldFlip  })
 
     const text = card.textD;
 
-    useEffect(() => {
-    }, []); 
 
     useEffect(() => {
     }, [isFlipped]);
@@ -33,7 +31,6 @@ const Card = ({ card, onPropertyClick, isClickable, isPlayerCard, shouldFlip  })
             setIsFlipped(false);
         }
     };
-
   
     const handlePropertyClick = (propertyName) => {
         if (isClickable && onPropertyClick) {
@@ -109,11 +106,11 @@ const Card = ({ card, onPropertyClick, isClickable, isPlayerCard, shouldFlip  })
     );
 };
 
-// Definition der erwarteten Prop-Typen für `Card`.
 Card.propTypes = {
     shouldFlip: PropTypes.bool,
     card: PropTypes.shape({
         image: PropTypes.string.isRequired,
+        property1: PropTypes.number.isRequired,
         property2: PropTypes.number.isRequired,
         property3: PropTypes.number.isRequired,
         property4: PropTypes.number.isRequired,
