@@ -2,10 +2,11 @@
 
 .game-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 3em;
     transform: scale(1);
+    background-color: $primary-color;
 }
 @media (max-width: 900px) {
    .game-container{
