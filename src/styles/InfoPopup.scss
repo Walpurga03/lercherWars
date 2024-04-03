@@ -1,3 +1,5 @@
+@import 'variables';
+
 /* InfoPopup.css */
 .info-button {
     position: fixed;
@@ -16,15 +18,15 @@
     justify-content: center;
     align-items: start; /* Ändert die vertikale Ausrichtung, damit das Popup oben beginnt */
     padding-top: 10vh; /* Fügt oben einen Abstand ein, für bessere Sichtbarkeit */
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color:$primary-color-dark;
     z-index: 101;
   }
   
   .popup-content {
-    background-color: #fff;
+    background-color: $primary-color;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px $primary-color-light;
     width: 80%; /* Setzt die Breite auf 80% des Viewports */
     max-width: 600px; /* Setzt eine maximale Breite */
     max-height: 80vh; /* Maximale Höhe des Popups, um sicherzustellen, dass es scrollbar ist */
@@ -33,12 +35,12 @@
   
   
   .properties-info h2 {
-        color: #000;
+        color: $secondary-color;
         font-size: 2em;
         margin-top: 20px;
     }
   .properties-info h3 {
-    color: #000;
+    color: $secondary-color;
       margin-top: 20px;
     }
   
@@ -46,6 +48,7 @@
     list-style-type: none;
     padding-left:0;
     margin-left: 0;
+    color: $secondary-color-light;
   }
   
   .properties-info li {

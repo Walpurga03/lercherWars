@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import anime from 'animejs/lib/anime.es.js';
-import '../styles/StartAnimation.css';
+import '../styles/main.scss';
 
 const StartAnimation = ({ onAnimationEnd }) => {
     const [isAnimationComplete, setIsAnimationComplete] = useState(false);

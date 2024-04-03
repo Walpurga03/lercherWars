@@ -1,7 +1,7 @@
 // Importieren der notwendigen Abhängigkeiten von React, Prop-Types, Styles und weiteren Komponenten.
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import "../styles/Card.css";
+import "../styles/main.scss";
 import RatingScale from './RatingScale';
 
 const Card = ({ card, onPropertyClick, isClickable, isPlayerCard, shouldFlip  }) => {
@@ -90,7 +90,7 @@ const Card = ({ card, onPropertyClick, isClickable, isPlayerCard, shouldFlip  })
 
                     {isPlayerCard && (
                         <div className="card-text">
-                    <button onClick={toggleText}>{showFullText ? 'Weniger' : 'Mehr'}</button>
+                    <button className="button" onClick={toggleText}>{showFullText ? 'Weniger' : 'Mehr'}</button>
                     <div className="card-text-bubble">
                         <p className='card-text-p'>{showFullText ? text : `${text.substring(0, 25)}...`}</p>
                     </div>

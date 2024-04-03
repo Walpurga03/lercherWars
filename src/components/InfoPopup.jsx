@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/InfoPopup.css'; 
+import '../styles/main.scss'; 
 
 const InfoPopup = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -10,7 +10,7 @@ const InfoPopup = () => {
 
     return (
         <>
-            <button className="info-button" onClick={togglePopup}>Info</button>
+            <button className="button info-button" onClick={togglePopup}>Info</button>
             {isPopupOpen && (
                 <div className="popup-overlay">
                 <div className="popup-content">
@@ -66,7 +66,7 @@ const InfoPopup = () => {
                       <li>6 Pkt: Niemand weiß genau, wann sie gehen, weil sie irgendwie immer noch da sind, wenn das Licht angeht.</li>
                     </ul>
                   </div>
-                  <button onClick={togglePopup}>Schließen</button>
+                  <button className="button" onClick={togglePopup}>Schließen</button>
                 </div>
               </div>
               

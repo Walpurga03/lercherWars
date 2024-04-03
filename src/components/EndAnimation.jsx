@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import anime from 'animejs/lib/anime.es.js';
-import '../styles/EndAnimation.css';
+import '../styles/main.scss';
 import cardsData from '../data/cardsData';
 
 

@@ -1,3 +1,5 @@
+@import 'variables';
+
 .game-container {
     display: flex;
     justify-content: space-between;
@@ -19,12 +21,6 @@
    .game-container{
     transform: scale(0.7);
    }
-}
-
-.end-game-message {
-    margin-top: 20px;
-    font-size: 24px;
-    color: red;
 }
 
 .button-container {
@@ -206,6 +202,10 @@
     .rotate-device {
       display: flex;
     }
+  }
+
+  .card-count{
+    color: $secondary-color;
   }
 
 

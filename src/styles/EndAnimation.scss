@@ -1,3 +1,5 @@
+@import 'variables';
+
 .endAnimBody{
     margin: 0;
     width: 100vw;
@@ -20,7 +22,7 @@
 }
 
 h2{
-    color: #fff;
+    color: $primary-color-dark;
     text-align: center;
     font-size: 10vw;
     line-height: 0.8em;

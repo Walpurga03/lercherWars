@@ -1,3 +1,5 @@
+@import 'variables';
+
 .card-image {
     width: 100%; /* Passt die Bildbreite an die Kartenbreite an */
     height: auto; /* Hält das Seitenverhältnis bei */
@@ -6,38 +8,29 @@
 
 .card-ul {
     list-style: none; /* Entfernt Aufzählungszeichen */
-    padding: 0; /* Entfernt Padding */
     font-size: 15px; /* Schriftgröße */
-}
-
-.card-ul {
-    list-style: none; /* Entfernt die Listensymbole */
-    padding-left: 7px; /* Fügt Innenabstand hinzu */
+    background-color: $primary-color;
+    padding-left: 0;
 }
 
 .card-li {
     margin-bottom: 5px; /* Abstand zwischen Listenelementen */
+    padding-left: 5px;
     font-weight: bold; /* Macht den Text fett */
     display: flex;
-    color: #000000;
+    color: $secondary-color;
     align-items: center;
     justify-content: space-between; /* Verteilt die Inhalte */
     width: 100%; /* Stellt sicher, dass das li-Element die volle Breite einnimmt */
     cursor: pointer; /* Verändert den Cursor beim Hover */
 }
 
-
-.card-li:hover{
-    background-color: #000; 
-    color: #fff; 
-}
-
-.card-li.can-hover:hover {
-    background-color: #000; 
-    color: #fff; 
+@media (hover: hover) {
+    .card-li:hover {
+        background-color: $secondary-color; 
+        color: $primary-color; 
+    }
   }
-  
-
 
 .scale-point {
     display: inline-block;
@@ -109,18 +102,18 @@
 
 /* Schatten und Rand nur anzeigen, wenn NICHT umgedreht */
 .card-flip:not(.is-flipped) .card-front {
-    border: solid 7px rgb(50, 48, 50);
-    box-shadow: 5px 5px 5px grey;
+    border: solid 7px $secondary-color;
+    box-shadow: 5px 5px 5px $secondary-color-light;
     border-radius: 2em;
 }
 
 /* Grundlegendes Design der Sprechblase */
 .card-text-bubble {
     position: relative;
-    background: #f0f0f0;
+    background: $primary-color-dark;
     border-radius: 4px;
     padding: 10px 20px;
-    color: #333;
+    color: $secondary-color-light;
     max-width: 80%;
     margin: 10px auto;
 }
@@ -133,7 +126,7 @@
     left: 20px;    /* Positionierung des Pfeils entlang der horizontalen Achse */
     border-width: 10px;
     border-style: solid;
-    border-color: transparent transparent #f0f0f0 transparent;
+    border-color: transparent transparent $primary-color-dark transparent;
 }
 
   

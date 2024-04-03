@@ -5,7 +5,7 @@ import { startGame, compareCardProperties } from '../redux/actions';
 import { selectHighestPropertyForComputer } from '../logic/gameLogic';
 
 import Card from './Card';
-import '../styles/GameBoard.css';
+import '../styles/main.scss';
 import StartAnimation from './StartAnimation';
 import EndAnimation from './EndAnimation';
 
@@ -123,7 +123,7 @@ const GameBoard = () => {
                             <div className='result'>
                                 <div className={`button-container ${isPlayerTurn ? 'hidden-button' : 'visible-button'}`}>
                                     {!isPlayerTurn && (
-                                    <button onClick={handleComputerTurn} disabled={!isButtonClickable}>Dominik-Auswahl</button>
+                                    <button className="button" onClick={handleComputerTurn} disabled={!isButtonClickable}>Dominik-Auswahl</button>
                                     )}
                                 </div>  
                                 {selectedProperty && resultMessage && (
@@ -160,7 +160,7 @@ const GameBoard = () => {
                                 <div className="rotate-device">
                                     Bitte drehen Sie Ihr Gerät für die beste Ansicht.
                                 </div>
-                                <button onClick={handleStartGame}>Spiel Starten</button>
+                                <button className="button" onClick={handleStartGame}>Spiel Starten</button>
                             </>
                             )}
                         </>
