@@ -28,13 +28,16 @@ h2{
     line-height: 0.8em;
     z-index: 1000;
     font-weight: 900;
+    text-shadow: 2px 2px 4px $secondary-color-light;
 }
 
 h2 span{
+    color: $primary-color-dark;
     font-size: 0.3em;
     letter-spacing: 0.6em;
     font-weight: 400;
     text-transform: uppercase;
+    text-shadow: 2px 2px 4px $secondary-color-light;
 }
 
 .block{
