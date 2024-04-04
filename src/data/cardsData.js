@@ -194,7 +194,7 @@
               property2D: "Sauberkeit",
               property3: 2,
               property3D: "Fräserfahrung",
-              property4: 3,
+              property4: 4,
               property4D: "Sportlichkeit",
               property5: 3,
               property5D: "Sitzfleisch",

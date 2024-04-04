@@ -1,0 +1,32 @@
+@import '../../utilities/variables';
+@import '../../utilities/mixins';
+
+section{
+    margin: 0;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: $primary-color;
+}
+section .text{
+    position: relative;
+    font-size: 12vw;
+    text-align: center;
+    color: $secondary-color-dark;
+    -webkit-box-reflect: below -0.46em linear-gradient(transparent, #0004);
+}
+section .text span{
+    position:relative;
+    display: inline-block;
+}
+
+.hide {
+    display: none;
+}
+
+
+

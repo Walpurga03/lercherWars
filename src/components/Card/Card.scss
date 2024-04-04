@@ -1,4 +1,5 @@
-@import 'variables';
+@import '../../utilities/variables';
+@import '../../utilities/mixins';
 
 .card-image {
     width: 100%; /* Passt die Bildbreite an die Kartenbreite an */
@@ -106,10 +107,6 @@
     box-shadow: 5px 5px 5px $secondary-color-light;
     border-radius: 2em;
 }
-.card-text{
-    margin: 0 auto;
-    text-align: center;
-}
 
 /* Grundlegendes Design der Sprechblase */
 .card-text-bubble {
@@ -119,7 +116,7 @@
     padding: 10px 20px;
     color: $secondary-color-light;
     max-width: 80%;
-    margin: 15px auto;
+    margin: 10px auto;
 }
 
 /* Kleiner Pfeil an der Sprechblase */
@@ -127,7 +124,7 @@
     content: "";
     position: absolute;
     bottom: 100%;  /* Position direkt unter der Sprechblase */
-    left: 47%;  /* Positionierung des Pfeils entlang der horizontalen Achse */
+    left: 20px;    /* Positionierung des Pfeils entlang der horizontalen Achse */
     border-width: 10px;
     border-style: solid;
     border-color: transparent transparent $primary-color-dark transparent;

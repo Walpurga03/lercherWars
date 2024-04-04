@@ -1,13 +1,13 @@
 // Importieren notwendiger Abhängigkeiten und Komponenten
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { startGame, compareCardProperties } from '../redux/actions';
-import { selectHighestPropertyForComputer } from '../logic/gameLogic';
+import { startGame, compareCardProperties } from '../../redux/actions.js';
+import { selectHighestPropertyForComputer } from '../../logic/gameLogic.js';
 
-import Card from './Card';
-import '../styles/main.scss';
-import StartAnimation from './StartAnimation';
-import EndAnimation from './EndAnimation';
+import '../Card/Card.jsx';
+import './GameBoard.scss';
+import StartAnimation from '../StartAnimation/StartAnimation.jsx';
+import EndAnimation from '../EndAnimation/EndAnimation.jsx';
 
 const GameBoard = () => {
 
@@ -160,9 +160,7 @@ const GameBoard = () => {
                                 <div className="rotate-device">
                                     Bitte drehen Sie Ihr Gerät für die beste Ansicht.
                                 </div>
-                                <div className='start-button-container'>
-                                    <button className="button" onClick={handleStartGame}>Spiel Starten</button>
-                                </div>
+                                <button className="button" onClick={handleStartGame}>Spiel Starten</button>
                             </>
                             )}
                         </>
